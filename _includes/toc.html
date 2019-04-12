@@ -1,0 +1,8 @@
+{% if page.toc == true %}
+<div class="generated-sidebar portlet" id="p-toc" role="toc">
+  <h3>{{ site.data.i18n[site.lang].label.toc }}</h3>
+  <div class="portlet-body">
+    {{ content | toc_only }}
+  </div>
+</div>  
+{% endif %}

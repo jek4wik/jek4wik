@@ -1,0 +1,51 @@
+---
+layout: default
+title: Tags
+---
+{% assign var = 10 %}
+
+{% comment %}
+=======================
+The following part extracts all the tags from your posts and sort tags, so that you do not need to manually collect your tags to a place.
+=======================
+{% endcomment %}
+{% assign rawtags = "" %}
+
+{% include /functions/wiki-pages.html %}
+
+{% for wiki_page in wiki_pages %}
+	{% assign ttags = wiki_page.tags | join:'|' | append:'|' %}
+	{% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+{% comment %}
+=======================
+The following part removes dulpicated tags and invalid tags like blank tag.
+=======================
+{% endcomment %}
+
+{% assign tags = "" %}
+{% for tag in rawtags %}
+	{% if tag != "" %}
+		{% if tags == "" %}
+			{% assign tags = tag | split:'|' %}
+		{% endif %}
+		{% unless tags contains tag %}
+			{% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+		{% endunless %}
+	{% endif %}
+{% endfor %}
+
+<ul>
+{% for tag in tags %}
+	<li id="n-tag-{{ tag }}"><a href="/{{ site.data.i18n[site.lang].prefix.tag }}{{ tag }}.html">{{ tag }}</a></li>
+	<ul>
+	{% for other_page in wiki_pages %}
+	{% if other_page.tags contains tag %}
+	<li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
+	{% endif %}
+	{% endfor %}
+	</ul>
+{% endfor %}
+</ul>

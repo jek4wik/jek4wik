@@ -1,0 +1,15 @@
+home: Accueil
+logo: /img/wiki.png
+label:
+  author: Auteur
+  links: Formation(s)
+  tags: Autres articles
+  toc: Sommaire
+  modified: Modification
+  created: Création
+  redirect: "Rediriger vers"
+  tag_pages: "Pages dans la catégorie"
+  main_page: "Page principale"
+prefix:
+  tag: "Tag:"
+  user: "Utilisateur:"

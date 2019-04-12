@@ -1,0 +1,29 @@
+title: Jekyll for Wiki
+description:  > # this means to ignore newlines
+    Bootstrap project based on Jekyll to build a static Wiki
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "htpps://jek4wik.github.io"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-asciidoc
+  - jekyll-toc
+
+encoding: UTF-8
+lang: en # fr is also supported ; feel free to contribute other languages
+date_format: "%-d %b %Y"
+
+collections:
+  wiki:
+    output: true
+    permalink: "/:path" 
+    path: "" # avoid wiki in the url
+  wiki-legacy:
+    output: true
+    permalink: "/:path"
+    path: ""
+  special:
+    output: true
+    permalink: "/:path"
+    path: ""

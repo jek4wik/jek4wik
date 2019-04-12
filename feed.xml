@@ -1,0 +1,23 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }}</title>
+    <description>{{ site.description }}</description>
+    <link>{{ site.url }}</link>
+    {% include /functions/wiki-pages.html %}
+    {% for post in wiki_pages reversed%}
+      {% unless post.draft %}
+        <item>
+          <title>{{ post.title | xml_escape }}</title>
+          <description>{{ post.description | xml_escape | truncate: 300 }}</description>
+          <pubDate>{{ post.created | date_to_xmlschema }}</pubDate>
+          <link>{{ post.url | prepend: site.url | append: '.html'}}</link>
+          <guid isPermaLink="true">{{ post.url | prepend: site.url  | append: '.html' }}</guid>
+        </item>
+      {% endunless %}
+    {% endfor %}
+  </channel>
+</rss>

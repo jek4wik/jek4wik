@@ -1,0 +1,15 @@
+home: Main
+logo: /img/wiki.png
+label:
+  author: Author
+  links: Links
+  tags: Other pages
+  toc: Table of content
+  modified: Modified
+  created: Created
+  redirect: "Redirect to"
+  tag_pages: "Pages with tag"
+  main_page: "Main page"
+prefix:
+  tag: "Tag:"
+  user: "User:"

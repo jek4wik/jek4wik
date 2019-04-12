@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} ^title=Special:Newpages\&feed=rss$
+RewriteRule ^index\.php$ /feed.xml? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^title=Sp%C3%A9cial:Nouvelles_pages&feed=rss$
+RewriteRule ^index\.php$ /feed.xml? [R=301,L]
+
+RewriteCond %{QUERY_STRING} [^&?]*?=([^&?]*)[&]?(.*)
+RewriteRule ^index\.php$ /%1.html?%2 [R=301,L]
