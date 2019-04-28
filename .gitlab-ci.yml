@@ -1,0 +1,59 @@
+image: ruby:2.5
+
+stages:
+  - build
+  - package
+  - deploy
+
+cache:
+  paths:
+  - vendor/
+
+build:
+  stage: build
+  before_script:
+  - bundle install
+  script:
+  - echo "Build with Jekyll"
+  - bundle exec jekyll build --destination public
+  artifacts:
+    paths:
+    - public
+    expire_in: 10 minutes
+
+package:
+  stage: package
+  script:
+  - echo "Package downloadable wiki"
+  - tar -zcvf wiki.tar.gz public
+  artifacts:
+    paths:
+    - wiki.tar.gz
+
+upload:
+  stage: deploy
+  before_script:
+  - apt-get update
+  - apt install -y lftp
+  script:
+  - echo "Upload to $FTP_HOST"
+  # ftp and sftp are both supported in GitLab CI
+  - lftp ftp://$FTP_USERNAME:$FTP_PASSWORD@$FTP_HOST -e "set sftp:auto-confirm true; set ftp:use-utf8 false; mirror --reverse --verbose --delete public/ $FTP_DIR; bye"
+  only:
+    refs: 
+    - master
+    variables:
+    - $FTP_PASSWORD
+    - $FTP_USERNAME
+    - $FTP_HOST
+    - $FTP_DIR
+
+pages: # Job name cannot be changed; see https://docs.gitlab.com/ee/user/project/pages/getting_started_part_four.html#job
+  stage: deploy
+  script:
+  - echo "Deploy to pages"
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

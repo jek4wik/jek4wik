@@ -216,9 +216,21 @@ The wiki may be deployed on Github pages with the following contraints:
 If you want to have this features on Github pages, you should push the generated site.
 Any CI tool can help.
 
-## Gitlab pages
+## Gitlab pages / CI
 
-[TBD]
+If your source code is hosted on Gitlab, you can deploy the wiki on Gitlab page.
+The .gitlab-ci.yml provides a generic setup for that.
+When you push on Gitlab, the file is be detected and a pipeline is run.
+The wiki is then deployed on pages.
+
+> Note: the deployment may occur several minutes after the end of the build.
+
+With the provided configuration, Gitlab CI may also upload the site with SFTP.
+
+Reference:
+
+* [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/)
+
 
 ## Github actions
 
@@ -232,7 +244,7 @@ The examples and this page are built this way.
 The [repository](https://github.com/jek4wik/jek4wik) provides a `.travis.yml` configuration file wich deploy the built site on Github Pages.
 If want to use it, just change the `repo` and setup your build on Travis CI with the GITHUB_TOKEN environment variable.
 
-The Travis configuration may upload the site with SFTP.
+With the provided configuration, Travis CI may also upload the site with SFTP.
 
 References:
 
