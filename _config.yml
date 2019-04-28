@@ -18,6 +18,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - img/brand
+  - vendor # For CI cache
 
 collections:
   wiki:

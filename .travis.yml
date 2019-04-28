@@ -1,0 +1,33 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.5.3
+
+before_script: bundle install
+script: bundle exec jekyll build
+exclude: [vendor]
+sudo: false
+
+before_deploy:
+- sudo apt-get update
+- sudo apt install -y lftp
+deploy:
+  # Deploy on a Github pages
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+    local_dir: _site
+    repo: jek4wik/jek4wik.github.io
+    target_branch: master
+    on:
+      branch: master
+      condition: -n "${GITHUB_TOKEN}"
+  # Upload with FTP
+  - provider: script
+    skip_cleanup: true
+    ## sftp is mandatory, ftp is not supported on Travis CI
+    ## see https://docs.travis-ci.com/user/common-build-problems/#ftpsmtpother-protocol-does-not-work
+    script: lftp sftp://$FTP_USERNAME:$FTP_PASSWORD@$FTP_HOST -e "mirror --reverse --verbose --delete _site/ $FTP_DIR; bye"
+    on:
+      branch: master
+      condition: -n "${FTP_PASSWORD}"

@@ -226,7 +226,18 @@ Any CI tool can help.
 
 ## TravisCI
 
-[TBD]
+[Travis CI](https://travis-ci.org/) can launch automatically the jekyll build and deploy the site.
+
+The examples and this page are built this way.
+The [repository](https://github.com/jek4wik/jek4wik) provides a `.travis.yml` configuration file wich deploy the built site on Github Pages.
+If want to use it, just change the `repo` and setup your build on Travis CI with the GITHUB_TOKEN environment variable.
+
+The Travis configuration may upload the site with SFTP.
+
+References:
+
+* [Travis CI - GitHub Pages Deployment](https://docs.travis-ci.com/user/deployment/pages/)
+* [Travis CI - Script deployment](https://docs.travis-ci.com/user/deployment/script/)
 
 # Examples
 
