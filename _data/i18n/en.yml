@@ -19,3 +19,5 @@ global_pages:
     text: Home page
   - url: /Special:Tags
     text: All the tags
+  - url: /Special:Users
+    text: All the users

@@ -19,3 +19,5 @@ global_pages:
     text: Accueil
   - url: /Special:Tags
     text: Toutes les catégories
+  - url: /Special:Users
+    text: Tous les utilisateurs
