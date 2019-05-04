@@ -258,5 +258,5 @@ References:
 * Example of a [redirected page](Redirect.html)
 * Example of a [user page](./User:Alexis.html)
 * [RSS](feed.xml) feed of new pages
-* Example of a [tag page](./Category:Example.html)
+* Example of a [tag page](./Tag:Example.html)
 * [All tags page](./tags.html)

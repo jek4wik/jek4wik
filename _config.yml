@@ -33,3 +33,7 @@ collections:
     output: true
     permalink: "/:path"
     path: ""
+  global:
+    output: true
+    permalink: "/:path"
+    path: ""
