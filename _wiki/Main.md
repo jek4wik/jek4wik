@@ -1,7 +1,6 @@
 ---
-layout: wiki
+layout: simple
 title: Main Page
-toc: false
 created: 2009-04-12
 modified: 2009-04-12
 revisions:

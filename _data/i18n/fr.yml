@@ -10,6 +10,12 @@ label:
   redirect: "Rediriger vers"
   tag_pages: "Pages dans la catégorie"
   main_page: "Page principale"
+  global_pages: "Pages spéciales"
 prefix:
   tag: "Tag:"
   user: "Utilisateur:"
+global_pages:
+  - url: /Accueil
+    text: Accueil
+  - url: /Special:Tags
+    text: Toutes les catégories

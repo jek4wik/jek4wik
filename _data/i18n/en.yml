@@ -10,6 +10,12 @@ label:
   redirect: "Redirect to"
   tag_pages: "Pages with tag"
   main_page: "Main page"
+  global_pages: "Special pages"
 prefix:
   tag: "Tag:"
   user: "User:"
+global_pages:
+  - url: /Main
+    text: Home page
+  - url: /Special:Tags
+    text: All the tags

@@ -1,0 +1,8 @@
+<div id="global" class="portlet">
+  <h3>{{ site.data.i18n[site.lang].label.global_pages }}</h3>
+  <ul class="portlet-body">
+    {%- for link in site.data.i18n[site.lang].global_pages -%}
+    <li><a href="{{link.url}}.html">{{link.text}}</a></li>
+    {%- endfor -%}
+  </ul>
+</div>

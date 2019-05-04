@@ -1,34 +1,20 @@
-<html dir="ltr" class="client-js" lang="fr">
-  <head>
-    {% include head.html %}
-  </head>
-
-  <body>
-    <div id="main">
-      <h1 id="title">{{ page.tags }}</h1>
-      <div id="content">
-        {{ content | inject_anchors }}  
-      </div>
-      <div id="pages">
-        <h3>{{ site.data.i18n[site.lang].label.tag_pages }} {{ page.tags }}</h3>
-        <div class="columns">
-          <ul>
-            {% include /functions/wiki-pages.html %}
-            {% for tag in page.tags %}
-              {% for other_page in wiki_pages %}
-                {% if other_page.tags contains tag and other_page.slug != page.slug %}
-                  <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
-                {% endif %}
-              {% endfor %}
-            {% endfor %}
-          </ul>
-        </div>
-      </div>      
-    </div>
-    <div id="menu">
-      {% include logo.html %}
-    </div>
-  
-    {% include footer.html %}
-  </body>
-</html>
+---
+layout: default
+menu: ['global']
+---
+{{ content | inject_anchors }}  
+<div id="pages">
+  <h3>{{ site.data.i18n[site.lang].label.tag_pages }} {{ page.tags }}</h3>
+  <div class="columns">
+    <ul>
+      {% include /functions/wiki-pages.html %}
+      {% for tag in page.tags %}
+        {% for other_page in wiki_pages %}
+          {% if other_page.tags contains tag and other_page.slug != page.slug %}
+            <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>      

@@ -1,11 +1,9 @@
-<html dir="ltr" class="client-js" lang="fr">
+<html>
   {%- include /functions/redirect-page.html -%}
-
   <head>
     {%- assign redirect_url = redirect_page.url | default: site.data.i18n[site.lang].home | append: ".html" -%}
     {%- include head.html redirect_url = redirect_url -%}
   </head>
-
   <body>
     <div id="main">
       <h1 id="title">{{ redirect_page.title }}</h1>
@@ -18,7 +16,6 @@
         </div>
       </div>
     </div>  
-
     <div id="menu">
       {%- include logo.html -%}
     </div>  

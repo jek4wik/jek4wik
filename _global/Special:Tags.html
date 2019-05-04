@@ -1,0 +1,18 @@
+---
+layout: default
+title: Tags
+menu: ['global']
+---
+{%- include /functions/wiki-tags.html -%}
+<ul>
+{%- for tag in tags -%}
+  {%- assign counter = 0 -%}
+  {%- for other_page in wiki_pages %}
+    {%- if other_page.tags contains tag -%}
+      {%- assign counter = counter | plus: 1 -%}
+	{%- endif -%}
+  {%- endfor -%}
+
+  <li id="n-tag-{{ tag }}"><a href="/{{ site.data.i18n[site.lang].prefix.tag }}{{ tag }}.html">{{ tag }}</a> ({{counter}} pages)</li>
+{%- endfor -%}
+</ul>
