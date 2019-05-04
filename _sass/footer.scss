@@ -1,0 +1,29 @@
+body > footer {
+  background: #ffffff;
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+footer {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+
+  #footer-center {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    font-size: 80%;
+  }
+
+  #footer-right {
+    align-self: center;
+    justify-self: end;
+
+    a {
+      background-image: url(https://creativecommons.org/images/public/somerights20.png);
+      width: 88px;
+      height: 31px;
+      display: block;
+      background-repeat: no-repeat;
+    }
+  }
+}

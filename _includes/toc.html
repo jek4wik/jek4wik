@@ -1,8 +1,7 @@
-{% if page.toc == true %}
-<div class="generated-sidebar portlet" id="p-toc" role="toc">
+{%- if page.toc == true -%}
+<div id="toc" class="portlet">
+  {{- content | toc_only | replace: "
+", "" -}}
   <h3>{{ site.data.i18n[site.lang].label.toc }}</h3>
-  <div class="portlet-body">
-    {{ content | toc_only }}
-  </div>
 </div>  
-{% endif %}
+{%- endif -%}

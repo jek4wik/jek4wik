@@ -1,12 +1,11 @@
-<div class="visualClear"></div>
-<div class="site-footer" id="footer">
-    <div id="f-poweredbyico">
-        <a href="https://creativecommons.org/licenses/by-nc-sa/2.5/">
-            <img src="https://creativecommons.org/images/public/somerights20.png" alt="Paternit�-NonCommercial-ShareAlike 2.5" width="88" height="31">
-        </a>
+<footer>
+    <div id="footer-left">
     </div>
-    <ul id="f-list">
-        <li>{% if page.modified %}{{ site.data.i18n[site.lang].label.modified }}: {{ page.modified }}{% endif %}<br/></li>
-        <li>{% if page.created %}{{ site.data.i18n[site.lang].label.created }}: {{ page.created }}{% endif %}</li>
-    </ul>
-</div>
+    <div id="footer-center">
+        {{ site.data.i18n[site.lang].label.modified }}: {{ page.modified }}<br/>
+        {{ site.data.i18n[site.lang].label.created }}: {{ page.created }}
+    </div>
+    <div id="footer-right">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/"></a>
+    </div>
+</footer>

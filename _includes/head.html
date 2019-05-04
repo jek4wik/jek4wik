@@ -1,10 +1,9 @@
-  <meta charset="UTF-8" />
-  <title>{{ page.title }}</title>
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/css/main.css" />
-  {% if include.redirect_url %}
-  <link rel="canonical" href="{{ include.redirect_url }}">
-  <meta http-equiv="refresh" content="0; url={{ include.redirect_url }}" />
-  {% endif %}
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} feed" href="/feed.xml" />
-  
+<meta charset="UTF-8" />
+<title>{{ page.title }} - {{ site.title }}</title>
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/css/main.css" />
+{%- if include.redirect_url -%}
+<link rel="canonical" href="{{ include.redirect_url }}">
+<meta http-equiv="refresh" content="0; url={{ include.redirect_url }}" />
+{%- endif -%}
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }} feed" href="/feed.xml" />

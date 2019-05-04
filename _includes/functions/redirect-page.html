@@ -1,7 +1,7 @@
-{% include /functions/wiki-pages.html %}
-{% assign redirect = page.redirect | default: site.data.i18n[site.lang].home %}
-{% for other_page in wiki_pages %}
-  {% if other_page.slug == redirect %}
-    {% assign redirect_page = other_page %}
-  {% endif %}
-{% endfor %}
+{%- include /functions/wiki-pages.html -%}
+{%- assign redirect = page.redirect | liquify -%}
+{%- for other_page in wiki_pages -%}
+  {%- if other_page.slug == redirect -%}
+    {%- assign redirect_page = other_page -%}
+  {%- endif -%}
+{%- endfor -%}

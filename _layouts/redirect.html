@@ -1,35 +1,27 @@
-<html>
-  {% include /functions/redirect-page.html %}
+<html dir="ltr" class="client-js" lang="fr">
+  {%- include /functions/redirect-page.html -%}
+
   <head>
-    {% assign redirect_url = redirect_page.url | append: ".html" %}
-    {% include head.html redirect_url = redirect_url %}
+    {%- assign redirect_url = redirect_page.url | default: site.data.i18n[site.lang].home | append: ".html" -%}
+    {%- include head.html redirect_url = redirect_url -%}
   </head>
 
   <body>
-    <div id="globalWrapper">
-      <div id="column-content">
-        <div id="content" class="wiki-body" role="main">
-  
-          <h1 id="firstHeading" class="firstHeading" lang="fr">
-            <span dir="auto">{{ redirect_page.title }}</span>
-          </h1>
-  
-          <div id="bodyContent" class="wiki-body-content">
-            <div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="fr">
-              <div class="redirectMsg">
-                <p>{{ site.data.i18n[site.lang].label.redirect }} :</p>
-                  <ul class="redirectText">
-                    <li><a href="{{ redirect_page.url }}.html" title="{{ redirect_page.name }}">{{ redirect_page.title }}</a></li>
-                  </ul>
-              </div>
-            </div>
-          </div>
+    <div id="main">
+      <h1 id="title">{{ redirect_page.title }}</h1>
+      <div id="content">
+        <div class="redirectMsg">
+          <p>{{ site.data.i18n[site.lang].label.redirect }} :</p>
+          <ul class="redirectText">
+            <li><a href="{{ redirect_page.url }}.html" title="{{ redirect_page.name }}">{{ redirect_page.title }}</a></li>
+          </ul>
         </div>
       </div>
-      <div id="column-one">
-        {% include logo.html %}      
-      </div>
-    </div>
-    {% include footer.html %}
+    </div>  
+
+    <div id="menu">
+      {%- include logo.html -%}
+    </div>  
+    {%- include footer.html -%}
   </body>
 </html>

@@ -1,7 +1,7 @@
-{% assign wiki_pages = '' | split: '' %}
-{% for collection in site.collections %}
-  {% assign prefix = collection.label | slice: 0, 4 %}
-  {% if prefix == 'wiki' %}
-	  {% assign wiki_pages = wiki_pages | concat: collection.docs %}
-  {% endif %}
-{% endfor %}
+{%- assign wiki_pages = '' | split: '' -%}
+{%- for collection in site.collections -%}
+  {%- assign prefix = collection.label | slice: 0, 4 -%}
+  {%- if prefix == 'wiki' -%}
+	  {%- assign wiki_pages = wiki_pages | concat: collection.docs -%}
+  {%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,18 @@
+.center {
+    width: 100%;
+    text-align: center;
+}
+div.floatleft {
+    float: left;
+    clear: left;
+    position: relative;
+    margin: 0 .5em .5em 0;
+    border: 0;
+}
+div.floatright {
+    float: right;
+    clear: right;
+    position: relative;
+    margin: 0 .5em .5em 0;
+    border: 0;
+}

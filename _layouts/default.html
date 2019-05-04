@@ -3,30 +3,17 @@
     {% include head.html %}
   </head>
 
-  <body class="mediawiki skin-monobook action-view">
-    <div id="globalWrapper">
-      <div id="column-content">
-        <div id="content" class="wiki-body" role="main">
-  
-          <h1 id="firstHeading" class="firstHeading">
-            <span dir="auto">{{ page.title }}</span>
-          </h1>
-  
-          <div id="bodyContent" class="wiki-body-content">
-            <div id="mw-content-text" dir="ltr">
-              {{ content | inject_anchors }}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="column-one">
-        {% include logo.html %}
-        {% include user.html %}
-        {% include toc.html %}
-        {% include links.html %}
-        {% include tags.html %}
-      </div>
+  <body>
+    <div id="main">
+      <h1 id="title">{{ page.title }}</h1>
+      <div id="content">{{ content | inject_anchors }}</div>
+    </div>  
+    <div id="menu">
+      {% include logo.html %}
+      {% include user.html %}
+      {% include toc.html %}
+      {% include links.html %}
+      {% include tags.html %}
     </div>
 
     {% include footer.html %}

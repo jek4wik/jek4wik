@@ -1,12 +1,10 @@
-{% if page.links != nil %}
-<div class="generated-sidebar portlet" id="p-links">
+{%- if page.links != nil -%}
+<div id="links" class="portlet">
   <h3>{{ site.data.i18n[site.lang].label.links }}</h3>
-  <div class="portlet-body">
-    <ul>
-        {% for link in page.links %}
-        <li><a href="{{link.url}}">{{link.text}}</a></li>
-        {% endfor %}
-    </ul>
-  </div>
+  <ul class="portlet-body">
+    {%- for link in page.links -%}
+    <li><a href="{{link.url}}">{{link.text}}</a></li>
+    {%- endfor -%}
+  </ul>
 </div>
-{% endif %}
+{%- endif -%}

@@ -1,14 +1,14 @@
-{% if page.author %}
-<div class="generated-sidebar portlet" id="p-author" role="author">
-  <h3>{{ site.data.i18n[site.lang].label.author }}</h3>
+{%- if page.author -%}
+<div id="author" class="portlet">
   <div class="portlet-body">
-    {% assign author = site.data.users[page.author] %}
+    {%- assign author = site.data.users[page.author] -%}
     <ul>
-      <li><a href="/{{ site.data.i18n[site.lang].prefix.user }}{{ page.author }}.html">{{ author.name }}</a></li>
+      <li><a href="/{{ site.data.i18n[site.lang].prefix.user }}{{ page.author }}">{{ author.name }}</a></li>
     </ul>
-    {% if author.logo %}
+    {%- if author.logo -%}
     <img src="/{{ author.logo }}" style="max-width: 100%;margin: 3px" />
-    {% endif %}
+    {%- endif -%}
   </div>
+  <h3>{{ site.data.i18n[site.lang].label.author }}</h3>
 </div>  
-{% endif %}
+{%- endif -%}

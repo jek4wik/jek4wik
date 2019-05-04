@@ -1,56 +1,34 @@
 <html dir="ltr" class="client-js" lang="fr">
   <head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css">
-    <style>
-      .columns {
-        -webkit-columns: 3;
-        -moz-columns: 3;
-        columns: 3;
-        width: 100%;
-      }
-    </style>
+    {% include head.html %}
   </head>
 
-  <body class="mediawiki ltr sitedir-ltr ns-0 ns-subject skin-monobook action-view">
-    <div id="globalWrapper">
-      <div id="column-content">
-        <div id="content" class="wiki-body" role="main">
-  
-          <h1 id="firstHeading" class="firstHeading" lang="fr">
-            <span dir="auto">{{ page.tags }}</span>
-          </h1>
-  
-          <div id="bodyContent" class="wiki-body-content">
-            <div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="fr">
-              {{ content }}
-            </div>
-          </div>
-
-          <div>
-              <h3>{{ site.data.i18n[site.lang].label.tag_pages }} {{ page.tags }}</h3>
-              <div class="columns">
-                <ul>
-                  {% include /functions/wiki-pages.html %}
-                  {% for tag in page.tags %}
-                    {% for other_page in wiki_pages %}
-                      {% if other_page.tags contains tag and other_page.slug != page.slug %}
-                        <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
-                      {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                </ul>
-              </div>
-            </div>  
-    
+  <body>
+    <div id="main">
+      <h1 id="title">{{ page.tags }}</h1>
+      <div id="content">
+        {{ content | inject_anchors }}  
+      </div>
+      <div id="pages">
+        <h3>{{ site.data.i18n[site.lang].label.tag_pages }} {{ page.tags }}</h3>
+        <div class="columns">
+          <ul>
+            {% include /functions/wiki-pages.html %}
+            {% for tag in page.tags %}
+              {% for other_page in wiki_pages %}
+                {% if other_page.tags contains tag and other_page.slug != page.slug %}
+                  <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
         </div>
-      </div>
-      <div id="column-one">
-        {% include logo.html %}
-      </div>
+      </div>      
     </div>
+    <div id="menu">
+      {% include logo.html %}
+    </div>
+  
     {% include footer.html %}
   </body>
 </html>

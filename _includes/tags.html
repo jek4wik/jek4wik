@@ -1,21 +1,20 @@
-{% if page.tags.size > 0 %}
-<div class="generated-sidebar portlet" id="p-navigation" role="navigation">
+{%- if page.tags.size > 0 -%}
+<div id="navigation" class="portlet">
   <h3>{{ site.data.i18n[site.lang].label.tags }}</h3>
   <div class="portlet-body">
     <ul>
-      {% include /functions/wiki-pages.html %}
-
-      {% for tag in page.tags %}
+      {%- include /functions/wiki-pages.html -%}
+      {%- for tag in page.tags -%}
       <li id="n-tag-{{ tag }}"><a href="/{{ site.data.i18n[site.lang].prefix.tag }}{{ tag }}.html">{{ tag }}</a></li>
       <ul>
-      {% for other_page in wiki_pages %}
-        {% if other_page.tags contains tag and other_page.slug != page.slug %}
+      {%- for other_page in wiki_pages -%}
+        {%- if other_page.tags contains tag and other_page.slug != page.slug -%}
           <li><a href="{{ other_page.url }}.html">{{ other_page.title }}</a></li>
-        {% endif %}
-      {% endfor %}
+        {%- endif -%}
+      {%- endfor -%}
       </ul>
-      {% endfor %}
+      {%- endfor -%}
     </ul>
   </div>
 </div>  
-{% endif %}
+{%- endif -%}
