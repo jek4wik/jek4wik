@@ -21,5 +21,7 @@ global_pages:
     text: All the tags
   - url: /Special:AllPages
     text: All the pages
+  - url: /Special:RecentChanges
+    text: Recent changes
   - url: /Special:ListUsers
     text: All the users

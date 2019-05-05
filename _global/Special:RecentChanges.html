@@ -1,0 +1,15 @@
+---
+layout: default
+title: Recent changes
+menu: ['global']
+---
+{%- include /functions/wiki-pages.html -%}
+{%- assign recent_changes = wiki_pages | where_exp: 'page', 'page.modified' | sort: 'modified' | reverse -%}
+<ul>
+{%- for page in recent_changes limit:20 -%}
+  <li>
+    <a href="/{{ page.slug }}.html">{{ page.title }}</a>
+    &nbsp;- {{ page.modified }}
+  </li>
+{%- endfor -%}
+</ul>
