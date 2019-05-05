@@ -17,7 +17,9 @@ prefix:
 global_pages:
   - url: /Main
     text: Home page
-  - url: /Special:Tags
+  - url: /Special:Categories
     text: All the tags
-  - url: /Special:Users
+  - url: /Special:AllPages
+    text: All the pages
+  - url: /Special:ListUsers
     text: All the users
