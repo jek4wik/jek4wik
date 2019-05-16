@@ -23,5 +23,9 @@ global_pages:
     text: All the pages
   - url: /Special:RecentChanges
     text: Recent changes
+  - url: /Special:LongPages
+    text: Long pages
+  - url: /Special:ShortPages
+    text: Short pages
   - url: /Special:ListUsers
     text: All the users

@@ -7,7 +7,7 @@ menu: ['global']
 <ul class="columns">
 {%- for page in wiki_pages -%}
   <li>
-    <a href="/{{ page.slug }}.html">{{ page.title }}</a>
+    <a href="{{ page.url }}.html">{{ page.title }}</a>&nbsp; [{{ page.bytes }} bytes]
     {%- if page.author -%}&nbsp;(by <a href="/{{ site.data.i18n[site.lang].prefix.user }}{{ page.author }}.html">{{ page.author }}</a>) {%- endif -%}
   </li>
 {%- endfor -%}
