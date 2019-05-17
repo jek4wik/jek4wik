@@ -1,11 +1,17 @@
 <footer>
     <div id="footer-left">
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" id="license">
+            <img src="https://creativecommons.org/images/public/somerights20.png">
+        </a>
     </div>
     <div id="footer-center">
         {{ site.data.i18n[site.lang].label.modified }}: {{ page.modified }}<br/>
         {{ site.data.i18n[site.lang].label.created }}: {{ page.created }}
     </div>
     <div id="footer-right">
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/"></a>
+        <a href="https://jekyllrb.com/" title="Jekyll" id="poweredby">
+            <span>Powered by</span><img src="/img/jekyll-tube-bw.png">
+        </a>
+        {%- include analytics.html -%}
     </div>
 </footer>
