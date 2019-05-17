@@ -29,3 +29,5 @@ global_pages:
     text: Short pages
   - url: /Special:ListUsers
     text: All the users
+  - url: /Special:ListRedirects
+    text: Redirects

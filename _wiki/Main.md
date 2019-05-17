@@ -118,7 +118,7 @@ The frontmatter may contain the following attributes:
 
 ## Redirect page
 
-A redirect page should be place in a _wiki_ collection.
+A redirect page should be place in the _special_ collection.
 It should have a frontmatter with a **layout** and a **redirect**, and no content
 
 ```yaml
@@ -207,12 +207,9 @@ If the site is deployed on a Apache HTTP server, some old mediawiki URLs are rew
 
 ## Github pages
 
-The wiki may be deployed on Github pages with the following contraints:
+The wiki cannot be deloyed simply on Github pages because of unsupported filters and custom plugins.
 
-* Only HTML or Markdown, no Asciidoc
-* No generated toc
-
-If you want to have this features on Github pages, you should push the generated site.
+If you want to deploy it on Github pages, you should push the generated site.
 Any CI tool can help.
 
 ## Gitlab pages / CI

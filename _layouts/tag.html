@@ -10,7 +10,7 @@ menu: ['global']
       {% include /functions/wiki-pages.html %}
       {% for tag in page.tags %}
         {% for other_page in wiki_pages %}
-          {% if other_page.tags contains tag and other_page.slug != page.slug %}
+          {% if other_page.tags contains tag and other_page.id != page.id %}
             <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
           {% endif %}
         {% endfor %}
