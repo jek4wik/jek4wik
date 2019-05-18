@@ -3,17 +3,10 @@ layout: default
 title: Redirects
 menu: ['global']
 ---
-{%- assign redirect_pages = site.special | where_exp: 'page', 'page.redirect' -%}
-
 <ul>
-{%- for source_page in redirect_pages -%}
+{%- for source_page in site.data.wiki_redirects -%}
   <li>
-    {%- assign redirect = source_page.redirect | liquify | prepend: '/' -%}
-    {%- for other_page in site.data.wiki_pages -%}
-      {%- if other_page.id == redirect -%}
-        {%- assign redirect_page = other_page -%}
-      {%- endif -%}
-    {%- endfor -%}
+    {%- assign redirect_page = source_page.redirect_target -%}
     <a href="{{ source_page.url }}.html">{{ source_page.id }}</a> → <a href="{{ redirect_page.url }}.html">{{ redirect_page.title }}</a>
   </li>
 {%- endfor -%}

@@ -5,8 +5,8 @@
         </a>
     </div>
     <div id="footer-center">
-        {{ site.data.i18n[site.lang].label.modified }}: {{ page.modified }}<br/>
-        {{ site.data.i18n[site.lang].label.created }}: {{ page.created }}
+        {%- if page.modified -%} {{ site.data.i18n[site.lang].label.modified }}: {{ page.modified }} {%- endif -%}<br/>
+        {%- if page.created -%} {{ site.data.i18n[site.lang].label.created }}: {{ page.created }} {%- endif -%}
     </div>
     <div id="footer-right">
         <a href="https://jekyllrb.com/" title="Jekyll" id="poweredby">

@@ -11,6 +11,12 @@ Jekyll::Hooks.register :site, :post_read do |site|
         .flatten
     site.data['wiki_pages'] = wiki_pages
 
+    wiki_pages_hash = wiki_pages.map { |page| [page.id, page] }.to_h
+    wiki_redirects = site.documents
+        .select { |doc| doc.data['layout'] == 'redirect' }
+    wiki_redirects.each { |page| page.data['redirect_target'] = wiki_pages_hash["/#{page.data['redirect'] || site.data['i18n'][site.config['lang']]['home']}"] }
+    site.data['wiki_redirects'] = wiki_redirects
+
     wiki_tags = wiki_pages
         .map { |page| page.data['tags'] }
         .flatten
