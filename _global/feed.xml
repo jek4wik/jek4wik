@@ -7,8 +7,7 @@ layout: null
     <title>{{ site.title }}</title>
     <description>{{ site.description }}</description>
     <link>{{ site.url }}</link>
-    {% include /functions/wiki-pages.html %}
-    {% for post in wiki_pages reversed%}
+    {% for post in site.data.wiki_pages reversed%}
       {% unless post.draft %}
         <item>
           <title>{{ post.title | xml_escape }}</title>

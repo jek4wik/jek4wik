@@ -3,14 +3,13 @@ layout: default
 title: Redirects
 menu: ['global']
 ---
-{%- include /functions/wiki-pages.html -%}
 {%- assign redirect_pages = site.special | where_exp: 'page', 'page.redirect' -%}
 
 <ul>
 {%- for source_page in redirect_pages -%}
   <li>
     {%- assign redirect = source_page.redirect | liquify | prepend: '/' -%}
-    {%- for other_page in wiki_pages -%}
+    {%- for other_page in site.data.wiki_pages -%}
       {%- if other_page.id == redirect -%}
         {%- assign redirect_page = other_page -%}
       {%- endif -%}

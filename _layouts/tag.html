@@ -7,9 +7,8 @@ menu: ['global']
   <h3>{{ site.data.i18n[site.lang].label.tag_pages }} {{ page.tags }}</h3>
   <div class="columns">
     <ul>
-      {% include /functions/wiki-pages.html %}
       {% for tag in page.tags %}
-        {% for other_page in wiki_pages %}
+        {% for other_page in site.data.wiki_pages %}
           {% if other_page.tags contains tag and other_page.id != page.id %}
             <li><a href="{{ other_page.url }}">{{ other_page.title }}</a></li>
           {% endif %}

@@ -3,8 +3,7 @@ layout: default
 title: Long pages
 menu: ['global']
 ---
-{%- include /functions/wiki-pages.html -%}
-{%- assign long_pages = wiki_pages | sort: 'bytes' | reverse -%}
+{%- assign long_pages = site.data.wiki_pages | sort: 'bytes' | reverse -%}
 <ol>
 {%- for page in long_pages limit:50 -%}
   <li>

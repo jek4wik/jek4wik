@@ -3,8 +3,7 @@ layout: default
 title: Recent changes
 menu: ['global']
 ---
-{%- include /functions/wiki-pages.html -%}
-{%- assign recent_changes = wiki_pages | where_exp: 'page', 'page.modified' | sort: 'modified' | reverse -%}
+{%- assign recent_changes = site.data.wiki_pages | where_exp: 'page', 'page.modified' | sort: 'modified' | reverse -%}
 <ul>
 {%- for page in recent_changes limit:20 -%}
   <li>

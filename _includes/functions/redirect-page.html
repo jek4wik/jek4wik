@@ -1,5 +1,3 @@
-{%- include /functions/wiki-pages.html -%}
-
 {%- if include.page  -%}
   {%- assign source_page = include.source_page -%}
 {%- else -%}
@@ -7,7 +5,7 @@
 {%- endif -%}
 
 {%- assign redirect = source_page.redirect | liquify -%}
-{%- for other_page in wiki_pages -%}
+{%- for other_page in site.data.wiki_pages -%}
   {%- if other_page.id == redirect -%}
     {%- assign redirect_page = other_page -%}
   {%- endif -%}

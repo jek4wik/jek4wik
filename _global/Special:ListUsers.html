@@ -3,15 +3,10 @@ layout: default
 title: Users
 menu: ['global']
 ---
-{%- include /functions/wiki-tags.html -%}
 <ul>
-{%- for user in site.data.users -%}
-  {%- assign counter = 0 -%}
-  {%- for other_page in wiki_pages %}
-    {%- if other_page.author == user[0] -%}
-      {%- assign counter = counter | plus: 1 -%}
-  {%- endif -%}
+  {%- for author in site.data.authors -%}
+  <li>
+    <a href="{{ author.url }}.html">{{ author.name }}</a> (<a href="{{ author.contributions_url }}.html">{{author.contributions_count}} pages</a>)
+  </li>
   {%- endfor -%}
-  <li><a href="/{{ site.data.i18n[site.lang].prefix.user }}{{ user[0] }}.html">{{ user[1].name }}</a> ({{counter}} pages)</li>
-{%- endfor -%}
 </ul>

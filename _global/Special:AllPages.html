@@ -3,12 +3,11 @@ layout: default
 title: All pages
 menu: ['global']
 ---
-{%- include /functions/wiki-pages.html -%}
 <ul class="columns">
-{%- for page in wiki_pages -%}
+{%- for page in site.data.wiki_pages -%}
   <li>
     <a href="{{ page.url }}.html">{{ page.title }}</a>&nbsp; [{{ page.bytes }} bytes]
-    {%- if page.author -%}&nbsp;(by <a href="/{{ site.data.i18n[site.lang].prefix.user }}{{ page.author }}.html">{{ page.author }}</a>) {%- endif -%}
+    {%- if page.author_full -%}&nbsp;(by <a href="{{ page.author_full.url }}.html">{{ page.author_full.name }}</a>) {%- endif -%}
   </li>
 {%- endfor -%}
 </ul>
