@@ -3,10 +3,15 @@ layout: default
 title: All pages
 menu: ['global']
 ---
-<ul class="columns">
-{%- for page in site.data.wiki_pages -%}
+<ul>
+{%- assign sorted_page = site.data.wiki_pages | sort: "id" -%}
+{%- for page in sorted_page -%}
+  {%- assign page_name = page.id | slice: 1, 50 -%}
+  {%- if page_name != page.title -%}
+    {%- assign page_name = page_name | append: " - " | append: page.title -%}
+  {%- endif -%}
   <li>
-    <a href="{{ page.url }}.html">{{ page.title }}</a>&nbsp; [{{ page.bytes }} bytes]
+    <a href="{{ page.url }}.html">{{ page_name }}</a>&nbsp; [{{ page.bytes }} bytes]
     {%- if page.author_full -%}&nbsp;(by <a href="{{ page.author_full.url }}.html">{{ page.author_full.name }}</a>) {%- endif -%}
   </li>
 {%- endfor -%}
