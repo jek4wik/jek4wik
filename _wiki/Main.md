@@ -249,10 +249,10 @@ References:
 
 # Examples
 
-* Example of a [new page](New.html)
-* Example of a [legacy page](Old.html)
-* Example of a [redirected page](Redirect.html)
-* Example of a [user page](./User:Alexis.html)
+* Example of a [new page](New)
+* Example of a [legacy page](Old)
+* Example of a [redirected page](Redirect)
+* Example of a [user page](./User:Alexis)
 * [RSS](feed.xml) feed of new pages
-* Example of a [tag page](./Tag:Example.html)
-* [All tags page](./tags.html)
+* Example of a [tag page](./Tag:Example)
+* [All tags page](./tags)

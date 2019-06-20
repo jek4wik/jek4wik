@@ -7,7 +7,7 @@ menu: ['global']
 <ol>
 {%- for page in long_pages limit:50 -%}
   <li>
-    <a href="{{ page.url }}.html">{{ page.title }}</a>&nbsp; [{{ page.bytes }} bytes]
+    <a href="{{ page.url }}">{{ page.title }}</a>&nbsp; [{{ page.bytes }} bytes]
   </li>
 {%- endfor -%}
 </ol>

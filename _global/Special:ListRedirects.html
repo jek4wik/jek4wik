@@ -7,7 +7,7 @@ menu: ['global']
 {%- for source_page in site.data.wiki_redirects -%}
   <li>
     {%- assign redirect_page = source_page.redirect_target -%}
-    <a href="{{ source_page.url }}.html">{{ source_page.id }}</a> → <a href="{{ redirect_page.url }}.html">{{ redirect_page.title }}</a>
+    <a href="{{ source_page.url }}">{{ source_page.id }}</a> → <a href="{{ redirect_page.url }}">{{ redirect_page.title }}</a>
   </li>
 {%- endfor -%}
 </ul>

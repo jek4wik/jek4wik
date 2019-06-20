@@ -4,7 +4,7 @@ title: Tags
 ---
 <ul>
 {% for tag in site.data.wiki_tags %}
-	<li id="n-tag-{{ tag }}"><a href="/{{ site.data.i18n[site.lang].prefix.tag }}{{ tag }}.html">{{ tag }}</a></li>
+	<li id="n-tag-{{ tag }}"><a href="/{{ site.data.i18n[site.lang].prefix.tag }}{{ tag }}">{{ tag }}</a></li>
 	<ul>
 	{% for other_page in site.data.wiki_pages %}
 	{% if other_page.tags contains tag %}

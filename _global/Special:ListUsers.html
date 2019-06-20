@@ -6,7 +6,7 @@ menu: ['global']
 <ul>
   {%- for author in site.data.authors -%}
   <li>
-    <a href="{{ author.url }}.html">{{ author.name }}</a> (<a href="{{ author.contributions_url }}.html">{{author.contributions_count}} pages</a>)
+    <a href="{{ author.url }}">{{ author.name }}</a> (<a href="{{ author.contributions_url }}">{{author.contributions_count}} pages</a>)
   </li>
   {%- endfor -%}
 </ul>

@@ -7,14 +7,15 @@ layout: null
     <title>{{ site.title }}</title>
     <description>{{ site.description }}</description>
     <link>{{ site.url }}</link>
-    {% for post in site.data.wiki_pages reversed%}
+    {% assign wiki_pages = site.data.wiki_pages | sort: 'created' %}
+    {% for post in wiki_pages reversed%}
       {% unless post.draft %}
         <item>
           <title>{{ post.title | xml_escape }}</title>
-          <description>{{ post.description | xml_escape | truncate: 300 }}</description>
+          <description>{{ post.excerpt | strip_html }}</description>
           <pubDate>{{ post.created | date_to_xmlschema }}</pubDate>
-          <link>{{ post.url | prepend: site.url | append: '.html'}}</link>
-          <guid isPermaLink="true">{{ post.url | prepend: site.url  | append: '.html' }}</guid>
+          <link>{{ post.url | prepend: site.url}}</link>
+          <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
         </item>
       {% endunless %}
     {% endfor %}

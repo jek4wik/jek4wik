@@ -7,7 +7,7 @@ menu: ['global']
 <ul>
 {%- for page in recent_changes limit:20 -%}
   <li>
-    <a href="{{ page.url }}.html">{{ page.title }}</a>
+    <a href="{{ page.url }}">{{ page.title }}</a>
     &nbsp;- {{ page.modified }}
   </li>
 {%- endfor -%}

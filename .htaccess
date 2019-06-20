@@ -1,10 +1,33 @@
 RewriteEngine On
 
+# ################
+# RSS
+# ################
 RewriteCond %{QUERY_STRING} ^title=Special:Newpages\&feed=rss$
-RewriteRule ^index\.php$ /feed.xml? [R=301,L]
+RewriteRule ^index\.php$ https://%{HTTP_HOST}/feed.xml [R=301,NE,QSD,L]
 
+# ################
+# Conmpanion pages
+# ################
 RewriteCond %{QUERY_STRING} ^title=Sp%C3%A9cial:Nouvelles_pages&feed=rss$
-RewriteRule ^index\.php$ /feed.xml? [R=301,L]
+RewriteRule ^index\.php$ https://%{HTTP_HOST}/feed.xml [R=301,NE,QSD,L]
 
+RewriteCond %{QUERY_STRING} ^title=Special:Export/(.*)$
+RewriteRule ^index\.php$ https://%{HTTP_HOST}/%1 [R=301,NE,QSD,L]
+
+RewriteCond %{QUERY_STRING} ^title=Sp%C3%A9cial:Exporter/(.*)$
+RewriteRule ^index\.php$ https://%{HTTP_HOST}/%1 [R=301,NE,QSD,L]
+
+RewriteCond %{QUERY_STRING} ^title=Discussion:(.*)$
+RewriteRule ^index\.php$ https://%{HTTP_HOST}/%1 [R=301,NE,QSD,L] 
+
+# ################
+# Main pages
+# ################
 RewriteCond %{QUERY_STRING} [^&?]*?=([^&?]*)[&]?(.*)
-RewriteRule ^index\.php$ /%1.html?%2 [R=301,L]
+RewriteRule ^index\.php$ https://%{HTTP_HOST}/%1?%2 [R=301,NE,L]
+
+# ################
+# Error pages
+# ################
+ErrorDocument 404 https://%{HTTP_HOST}/404
